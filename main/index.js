@@ -15,13 +15,13 @@ app.on("ready", async () => {
 
   const mainWindow = new BrowserWindow({
     width: 400,
-    height: 500,
+    height: 750,
     webPreferences: {
+      autoHideMenuBar: true,
       nodeIntegration: false,
       preload: join(__dirname, "preload.js"),
     },
   });
-
   const url = isDev
     ? "http://localhost:8000"
     : format({
@@ -30,6 +30,8 @@ app.on("ready", async () => {
         slashes: true,
       });
 
+  mainWindow.setMenuBarVisibility(false);
+  mainWindow.setResizable(false);
   mainWindow.loadURL(url);
 });
 

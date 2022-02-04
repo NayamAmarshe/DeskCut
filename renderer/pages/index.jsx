@@ -24,17 +24,14 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Object.keys(input).map((key) => {
-      if (key !== "comment" || key !== "terminal") {
-        if (input[key].length < 1) {
-          setError(true);
-        }
-      }
-    });
-    if (error) {
+    const { name, exec, icon } = input;
+    const isValid = Object.values({ name, exec, icon }).every(Boolean);
+
+    if (!isValid) {
       alert("Please enter the values correctly");
     } else {
       window.electron.message(input);
+      alert("Shortcut Successfully Created!");
     }
   };
 
@@ -76,10 +73,10 @@ const Home = () => {
             setTerminal(!terminal);
           }}
         >
-          <p>Run in Terminal</p>
+          <p className="flex-grow">Run in Terminal</p>
           {!terminal ? (
             <svg
-              className="text-xl"
+              className="text-xl align-"
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -92,7 +89,7 @@ const Home = () => {
             </svg>
           ) : (
             <svg
-              className="text-xl"
+              className="text-xl "
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -112,69 +109,85 @@ const Home = () => {
           type="button"
           className={`${
             customExec ? "checkbox-on" : "checkbox-off"
-          } checkbox-bg`}
+          } checkbox-bg animate`}
           onClick={() => setCustomExec(!customExec)}
         >
-          <p>Use Custom Exec Command</p>
+          <p className="flex-grow">Use Custom Exec Command</p>
+
           {!customExec ? (
-            <svg
-              className="text-xl"
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M7,5C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V7c0-1.103-0.897-2-2-2H7z M7,17V7h10l0.002,10H7z"></path>
-            </svg>
+            <div>
+              <svg
+                className="text-xl"
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7,5C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V7c0-1.103-0.897-2-2-2H7z M7,17V7h10l0.002,10H7z"></path>
+              </svg>
+            </div>
           ) : (
-            <svg
-              className="text-xl"
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M9 9H15V15H9z"></path>
-              <path d="M19,17V7c0-1.103-0.897-2-2-2H7C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10C18.103,19,19,18.103,19,17z M7,7h10 l0.002,10H7V7z"></path>
-            </svg>
+            <div>
+              <svg
+                className="text-xl"
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9 9H15V15H9z"></path>
+                <path d="M19,17V7c0-1.103-0.897-2-2-2H7C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10C18.103,19,19,18.103,19,17z M7,7h10 l0.002,10H7V7z"></path>
+              </svg>
+            </div>
           )}
         </button>
 
         {/* Choose File Buttons */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 animate">
           {/* Custom Exec Input */}
           {customExec ? (
             <input
               type="text"
-              name="Exec"
-              placeholder="Custom Execution Command"
+              name="exec"
+              placeholder="App Description"
               value={input.exec}
               onChange={(e) => setInput({ ...input, exec: e.target.value })}
             />
           ) : (
-            <div className="picker flex flex-col items-center justify-center">
+            <button
+              type="button"
+              onClick={() => programRef.current.click()}
+              className="picker flex flex-col items-center justify-center"
+            >
               {/* Program Picker */}
-              <button onClick={() => programRef.current.click()}>
-                Choose Program
-              </button>
-              <p className="truncate w-80">
-                {loadedProgram && programRef.current.files[0].path}
-              </p>
-            </div>
+              <p>Choose Program</p>
+              {loadedProgram && (
+                <p className="truncate w-80 bg-red-300 rounded-lg p-1 text-slate-700 mt-2">
+                  {programRef?.current?.files[0]?.name}
+                </p>
+              )}
+            </button>
           )}
-          {/* Icon Picker */}
-          <div className="picker flex flex-col items-center justify-center">
-            <button onClick={() => iconRef.current.click()}>Choose Icon</button>
-            <p className="truncate w-80">
-              {loadedIcon && iconRef.current.files[0].path}
-            </p>
-          </div>
+          {/* Icon Button */}
+          <button
+            type="button"
+            onClick={() => iconRef.current.click()}
+            className="picker flex flex-col items-center justify-center"
+          >
+            {/* Program Picker */}
+            <p>Choose Icon</p>
+            {loadedIcon && (
+              <p className="truncate w-80 bg-red-300 rounded-lg p-1 text-slate-700 mt-2">
+                {iconRef?.current?.files[0]?.name}
+              </p>
+            )}
+          </button>
         </div>
 
         {/* File Picker */}
@@ -186,21 +199,31 @@ const Home = () => {
           onChange={(e) => {
             e.stopPropagation();
             e.preventDefault();
-            setInput({ ...input, exec: programRef.current.files[0].path });
-            setLoadedProgram(true);
+            console.log(programRef.current);
+            setInput({ ...input, exec: programRef?.current?.files[0]?.path });
+            if (programRef?.current?.files[0]?.path) {
+              setLoadedProgram(true);
+            } else {
+              setLoadedProgram(false);
+            }
           }}
         />
         <input
           type="file"
+          name="iconFile"
           ref={iconRef}
           accept="image/*"
-          name="iconFile"
           className="hidden"
           onChange={(e) => {
             e.stopPropagation();
             e.preventDefault();
-            setInput({ ...input, icon: iconRef.current.files[0].path });
-            setLoadedIcon(true);
+            console.log(iconRef.current);
+            setInput({ ...input, icon: iconRef?.current?.files[0]?.path });
+            if (iconRef?.current?.files[0]?.path) {
+              setLoadedIcon(true);
+            } else {
+              setLoadedIcon(false);
+            }
           }}
         />
 
