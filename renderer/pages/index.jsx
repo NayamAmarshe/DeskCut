@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { checkBox } from "../public/checkbox";
 
 const Home = () => {
   const programRef = useRef(null);
@@ -6,6 +7,7 @@ const Home = () => {
   const [loadedProgram, setLoadedProgram] = useState(false);
   const [loadedIcon, setLoadedIcon] = useState(false);
   const [customExec, setCustomExec] = useState(false);
+  const [terminal, setTerminal] = useState(false);
   const [error, setError] = useState(false);
 
   const [input, setInput] = useState({
@@ -37,11 +39,14 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center bg-slate-50">
       {/* Heading */}
-      <h1 className="p-5 text-2xl font-bold">DeskCut - Shortcut Creator</h1>
+      <h1 className="text-2xl font-bold pt-5 text-slate-600">DeskCut</h1>
+      <p className="text-sm leading-tight pb-2 text-slate-400">
+        Shortcut Creator
+      </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col p-5 gap-3 w-96">
+      <form onSubmit={handleSubmit} className="flex flex-col p-5 gap-5 w-96">
         {/* Text Inputs */}
         <input
           type="text"
@@ -63,22 +68,86 @@ const Home = () => {
           onChange={(e) => setInput({ ...input, comment: e.target.value })}
         />
 
+        {/* Terminal Checkbox */}
+        <button
+          type="button"
+          className={`${terminal ? "checkbox-on" : "checkbox-off"} checkbox-bg`}
+          onClick={() => {
+            setTerminal(!terminal);
+          }}
+        >
+          <p>Run in Terminal</p>
+          {!terminal ? (
+            <svg
+              className="text-xl"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M7,5C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V7c0-1.103-0.897-2-2-2H7z M7,17V7h10l0.002,10H7z"></path>
+            </svg>
+          ) : (
+            <svg
+              className="text-xl"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9 9H15V15H9z"></path>
+              <path d="M19,17V7c0-1.103-0.897-2-2-2H7C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10C18.103,19,19,18.103,19,17z M7,7h10 l0.002,10H7V7z"></path>
+            </svg>
+          )}
+        </button>
+
         {/* Custom Exec Checkbox */}
-        <div className="flex gap-2 justify-center items-center">
+        <button
+          type="button"
+          className={`${
+            customExec ? "checkbox-on" : "checkbox-off"
+          } checkbox-bg`}
+          onClick={() => setCustomExec(!customExec)}
+        >
           <p>Use Custom Exec Command</p>
-          <input
-            type="checkbox"
-            name="exec"
-            checked={customExec}
-            onChange={(e) => {
-              setCustomExec(!customExec);
-              setInput({ ...input, exec: "" });
-            }}
-          />
-        </div>
+          {!customExec ? (
+            <svg
+              className="text-xl"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M7,5C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V7c0-1.103-0.897-2-2-2H7z M7,17V7h10l0.002,10H7z"></path>
+            </svg>
+          ) : (
+            <svg
+              className="text-xl"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9 9H15V15H9z"></path>
+              <path d="M19,17V7c0-1.103-0.897-2-2-2H7C5.897,5,5,5.897,5,7v10c0,1.103,0.897,2,2,2h10C18.103,19,19,18.103,19,17z M7,7h10 l0.002,10H7V7z"></path>
+            </svg>
+          )}
+        </button>
 
         {/* Choose File Buttons */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-5">
           {/* Custom Exec Input */}
           {customExec ? (
             <input
@@ -89,7 +158,7 @@ const Home = () => {
               onChange={(e) => setInput({ ...input, exec: e.target.value })}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center">
+            <div className="picker flex flex-col items-center justify-center">
               {/* Program Picker */}
               <button onClick={() => programRef.current.click()}>
                 Choose Program
@@ -100,7 +169,7 @@ const Home = () => {
             </div>
           )}
           {/* Icon Picker */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="picker flex flex-col items-center justify-center">
             <button onClick={() => iconRef.current.click()}>Choose Icon</button>
             <p className="truncate w-80">
               {loadedIcon && iconRef.current.files[0].path}
@@ -134,20 +203,6 @@ const Home = () => {
             setLoadedIcon(true);
           }}
         />
-
-        {/* Terminal Checkbox */}
-        <div className="flex gap-2 justify-center items-center">
-          <p>Run in Terminal</p>
-          <input
-            type="checkbox"
-            name="exec"
-            checked={input.terminal}
-            onChange={(e) => {
-              console.log(e.target.checked);
-              setInput({ ...input, terminal: e.target.checked });
-            }}
-          />
-        </div>
 
         {/* Submit Button */}
         <button type="submit">Submit</button>

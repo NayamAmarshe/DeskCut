@@ -3,13 +3,30 @@
 @tailwind utilities;
 
 @layer base {
+  input,
+  button,
+  .picker {
+    @apply transition-all duration-300 ease-in-out;
+  }
   input[type="text"] {
-    @apply p-2 bg-gray-100 rounded-lg outline-none text-center;
+    @apply p-4 ring-offset-0 ring-slate-400 focus:ring-2 bg-slate-200 placeholder-slate-400 text-slate-700 rounded-lg outline-none text-center hover:shadow-lg hover:shadow-slate-300 focus:shadow-lg focus:shadow-slate-300 focus:scale-105 hover:scale-105;
   }
   button[type="submit"] {
-    @apply p-4 rounded-lg bg-green-300;
+    @apply p-4 rounded-lg bg-green-500 text-slate-50 hover:shadow-lg hover:shadow-green-300 hover:scale-105 focus:scale-105;
   }
-  button {
-    @apply p-2 bg-slate-600 rounded-lg text-white w-full;
+  .picker {
+    @apply p-4 bg-red-400 rounded-lg text-slate-50 w-full hover:shadow-lg hover:shadow-red-300 hover:scale-105 focus:shadow-lg focus:shadow-red-300;
+  }
+}
+
+@layer utilities {
+  .checkbox-bg {
+    @apply outline-none cursor-pointer flex gap-2 justify-center items-center p-4 rounded-lg hover:shadow-lg hover:scale-105 focus:shadow-lg focus:shadow-purple-400;
+  }
+  .checkbox-on {
+    @apply bg-yellow-400 shadow-blue-100 hover:shadow-yellow-400 text-yellow-700;
+  }
+  .checkbox-off {
+    @apply bg-purple-500 hover:shadow-purple-400 text-purple-100;
   }
 }
