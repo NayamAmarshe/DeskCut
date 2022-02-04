@@ -71,6 +71,7 @@ const Home = () => {
           className={`${terminal ? "checkbox-on" : "checkbox-off"} checkbox-bg`}
           onClick={() => {
             setTerminal(!terminal);
+            setInput({ ...input, terminal: terminal });
           }}
         >
           <p className="flex-grow">Run in Terminal</p>
