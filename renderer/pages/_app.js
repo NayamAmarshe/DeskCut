@@ -7,7 +7,7 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <title>DeskCut</title>
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 };
