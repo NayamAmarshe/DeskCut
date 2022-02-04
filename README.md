@@ -15,3 +15,4 @@ You'll have to run the file everytime you want to use the app so make sure you u
 ## To-Do
 
 - [ ] Dark Mode
+- [ ] Auto-Update
