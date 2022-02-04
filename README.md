@@ -1,19 +1,17 @@
-# Electron application example
+# DeskCut
+An easy to use app that lets you create Desktop Shortcuts on Linux without requiring to mess with `.desktop` files!
 
-This example shows how you can use Next.js inside an Electron application to avoid a lot of configuration. It uses the Next.js router as view and server-render to speed up the initial render of the application.
-
-For development it's going to run an HTTP server and let Next.js handle routing. In production it uses `next export` to pre-generate HTML static files and uses them in your app instead of running an HTTP server.
-
-**For detailed documentation about how to build Electron apps with Next.js, see [this blog post](https://leo.im/2017/electron-next)!**
+![image](https://user-images.githubusercontent.com/25067102/152531646-1988e573-bd4d-495b-8d63-de00a3905c29.png)
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Go to the releases section and download DeskCut's latest version, Install and that's it!
 
-```bash
-npx create-next-app --example with-electron with-electron-app
-# or
-yarn create next-app --example with-electron with-electron-app
-```
+1. You can download either the `.deb` version or the `AppImage`.   
+2. Use the `.deb` file to directly install it using your store app.   
+3. AppImage is portable and it doesn't integrate by default.   
+You'll have to run the file everytime you want to use the app so make sure you use something like AppImage launcher to properly install it on your system. 
 
-You can create the production app using `npm run dist`.
+## To-Do
+
+- [ ] Dark Mode
