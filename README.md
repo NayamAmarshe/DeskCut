@@ -5,7 +5,7 @@ An easy to use app that lets you create Desktop Shortcuts on Linux without requi
 
 ## How to use
 ### <a href="https://snapcraft.io/deskcut" target="_blank">Download from Snap Store</a>
-<a href="https://snapcraft.io/deskcut">![image](https://user-images.githubusercontent.com/25067102/152558710-383c7826-3f35-4820-a175-1032dde11d29.png)</a>
+<a href="https://snapcraft.io/deskcut">![image](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)</a>
 
 ### Manual Installation:
 Go to the releases section and download DeskCut's latest version, Install and that's it!   
