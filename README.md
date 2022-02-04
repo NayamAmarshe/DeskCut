@@ -12,7 +12,7 @@ Go to the releases section and download DeskCut's latest version, Install and th
 
 - You can download either the `.deb` version or the `AppImage`.   
 - Use the `.deb` file to directly install it using your store app. Please remember that .deb files only work on Debian based distros like Ubuntu, ZorinOS, PopOS, Mint, KDE Neon, etc. DEB file will not work on Fedora/Manjaro/Arch.   
-- AppImage is portable and it doesn't integrate by default. You'll have to run the file everytime you want to use the app so make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
+- AppImage is portable and it works almost everywhere. It should be fine for most people but remember that it doesn't integrate by default. You'll have to run the file everytime you want to use the app because AppImages aren't supposed to be installed on a system. So make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
 
 
 ## Build Instructions
