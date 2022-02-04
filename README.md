@@ -8,12 +8,12 @@ An easy to use app that lets you create Desktop Shortcuts on Linux without requi
 <a href="https://snapcraft.io/deskcut">![image](https://user-images.githubusercontent.com/25067102/152558710-383c7826-3f35-4820-a175-1032dde11d29.png)</a>
 
 ### Manual Installation:
+Go to the releases section and download DeskCut's latest version, Install and that's it!   
 
-0. Go to the releases section and download DeskCut's latest version, Install and that's it!   
-1. You can download either the `.deb` version or the `AppImage`.   
-2. Use the `.deb` file to directly install it using your store app.   
-3. AppImage is portable and it doesn't integrate by default.   
-You'll have to run the file everytime you want to use the app so make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
+- You can download either the `.deb` version or the `AppImage`.   
+- Use the `.deb` file to directly install it using your store app. Please remember that .deb files only work on Debian based distros like Ubuntu, ZorinOS, PopOS, Mint, KDE Neon, etc. DEB file will not work on Fedora/Manjaro/Arch.   
+- AppImage is portable and it doesn't integrate by default. You'll have to run the file everytime you want to use the app so make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
+
 
 ## Build Instructions
 
