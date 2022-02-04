@@ -15,6 +15,54 @@ An easy to use app that lets you create Desktop Shortcuts on Linux without requi
 3. AppImage is portable and it doesn't integrate by default.   
 You'll have to run the file everytime you want to use the app so make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
 
+## Build Instructions
+
+You'll need `node` and `npm` or `yarn`.
+### To install node, you can use fnm:
+```bash
+`curl -fsSL https://fnm.vercel.app/install | bash`   
+```
+Add `eval "$(fnm env --use-on-cd)"` to your .bashrc or .zshrc and then   
+```bash
+source .bashrc
+OR
+source .zshrc`
+```
+Then type
+```bash
+fnm install 16.13.2
+fnm use 16.13.2
+```
+Node is now installed.
+
+### OPTIONAL: Install Yarn
+Yarn is not necessary, npm can do exactly the same thing but I used yarn to create this project (Totally irrelevant).   
+But if you still want to use Yarn:   
+```
+npm install --global yarn
+```
+### Set up project
+Now cd to the location where you cloned this project and run:   
+```bash
+npm install
+or
+yarn install
+```
+
+### Run Development Build
+```bash
+npm run start
+OR
+yarn start
+```
+
+### To Package Build
+```bash
+npm run dist
+OR
+yarn dist
+```
+
 ## To-Do
 
 - [ ] Dark Mode
