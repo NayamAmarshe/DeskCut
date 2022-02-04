@@ -1,5 +1,5 @@
 # DeskCut
-An easy to use app that lets you create Desktop Shortcuts on Linux without requiring to mess with `.desktop` files!
+An easy to use app that lets you create Desktop Shortcuts (.desktop files) on Linux without requiring to mess with `.desktop` files!
 
 ![image](https://user-images.githubusercontent.com/25067102/152531646-1988e573-bd4d-495b-8d63-de00a3905c29.png)
 
