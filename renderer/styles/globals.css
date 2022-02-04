@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input[type="text"] {
+    @apply p-2 bg-gray-100 rounded-lg outline-none text-center;
+  }
+  button[type="submit"] {
+    @apply p-4 rounded-lg bg-green-300;
+  }
+  button {
+    @apply p-2 bg-slate-600 rounded-lg text-white w-full;
+  }
+}
