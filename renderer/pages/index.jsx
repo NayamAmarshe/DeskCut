@@ -36,9 +36,9 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-50">
+    <div className="flex flex-col justify-center items-center bg-slate-50 dark:bg-gray-800 h-screen">
       {/* Heading */}
-      <h1 className="text-2xl font-bold pt-5 text-slate-600">DeskCut</h1>
+      <h1 className="text-2xl font-bold pt-5 text-slate-600 dark:text-slate-100">DeskCut</h1>
       <p className="text-sm leading-tight pb-2 text-slate-400">
         Shortcut Creator
       </p>
