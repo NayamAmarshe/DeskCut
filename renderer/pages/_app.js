@@ -1,5 +1,6 @@
-import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
+import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -7,7 +8,13 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <title>DeskCut</title>
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem="true"
+      >
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 };

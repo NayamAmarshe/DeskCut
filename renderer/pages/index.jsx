@@ -1,15 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { checkBox } from "../public/checkbox";
+import { useTheme } from "next-themes";
 
 const Home = () => {
+  const { theme, setTheme } = useTheme();
+
   const programRef = useRef(null);
   const iconRef = useRef(null);
+
   const [loadedProgram, setLoadedProgram] = useState(false);
   const [loadedIcon, setLoadedIcon] = useState(false);
   const [customExec, setCustomExec] = useState(false);
   const [terminal, setTerminal] = useState(false);
   const [error, setError] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(false);
+  const [version, setVersion] = useState("");
   const [input, setInput] = useState({
     name: "",
     comment: "",
@@ -18,9 +23,36 @@ const Home = () => {
     terminal: false,
   });
 
+  console.log(darkMode);
+
+  // Fetch app version
   useEffect(() => {
-    console.log(input);
-  }, [input]);
+    setVersion(navigator.userAgent.match(/DeskCut\/([\d\.]+\d+)/)[1]);
+  }, []);
+
+  // Fetching update
+  useEffect(async () => {
+    const updateJson = await fetch(
+      "https://nayamamarshe.github.io/api/deskcut.json",
+      {
+        method: "GET",
+      }
+    ).then((res) => res.json());
+    if (updateJson) {
+      if (
+        updateJson.version >
+        navigator.userAgent.match(/DeskCut\/([\d\.]+\d+)/)[1]
+      ) {
+        const confirmText = "Update available! Download now?";
+        if (confirm(confirmText) == true) {
+          window.open(
+            "https://github.com/NayamAmarshe/DeskCut/releases/",
+            "_blank"
+          );
+        }
+      }
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,14 +68,29 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-50 dark:bg-gray-800 h-screen">
+    <div className="flex h-screen flex-col items-center justify-center bg-slate-50 dark:bg-gray-800">
       {/* Heading */}
-      <h1 className="text-2xl font-bold pt-5 text-slate-600 dark:text-slate-100">DeskCut</h1>
-      <p className="text-sm leading-tight pb-2 text-slate-400">
+      <h1 className="pt-5 text-2xl font-bold text-slate-600 dark:text-slate-100">
+        DeskCut
+      </h1>
+      <p className="pb-2 text-sm leading-tight text-slate-400">
         Shortcut Creator
       </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col p-5 gap-5 w-96">
+      <div className="animate absolute top-2 right-2 hover:scale-125 ">
+        <button
+          className="outline-none"
+          onClick={() => {
+            setDarkMode(!darkMode);
+            setTheme(darkMode ? "dark" : "light");
+            console.log(theme);
+          }}
+        >
+          {darkMode ? "🌞" : "🌚"}
+        </button>
+      </div>
+
+      <form onSubmit={handleSubmit} className="flex w-96 flex-col gap-5 p-5">
         {/* Text Inputs */}
         <input
           type="text"
@@ -77,7 +124,7 @@ const Home = () => {
           <p className="flex-grow">Run in Terminal</p>
           {!terminal ? (
             <svg
-              className="text-xl align-"
+              className="align- text-xl"
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -150,13 +197,13 @@ const Home = () => {
         </button>
 
         {/* Choose File Buttons */}
-        <div className="flex flex-col gap-5 animate">
+        <div className="animate flex flex-col gap-5">
           {/* Custom Exec Input */}
           {customExec ? (
             <input
               type="text"
               name="exec"
-              placeholder="App Description"
+              placeholder="Exec Command"
               value={input.exec}
               onChange={(e) => setInput({ ...input, exec: e.target.value })}
             />
@@ -169,7 +216,7 @@ const Home = () => {
               {/* Program Picker */}
               <p>Choose Program</p>
               {loadedProgram && (
-                <p className="truncate w-80 bg-red-300 rounded-lg p-1 text-slate-700 mt-2">
+                <p className="mt-2 w-80 truncate rounded-lg bg-red-300 p-1 text-slate-700">
                   {programRef?.current?.files[0]?.name}
                 </p>
               )}
@@ -184,7 +231,7 @@ const Home = () => {
             {/* Program Picker */}
             <p>Choose Icon</p>
             {loadedIcon && (
-              <p className="truncate w-80 bg-red-300 rounded-lg p-1 text-slate-700 mt-2">
+              <p className="mt-2 w-80 truncate rounded-lg bg-red-300 p-1 text-slate-700">
                 {iconRef?.current?.files[0]?.name}
               </p>
             )}
@@ -231,6 +278,10 @@ const Home = () => {
         {/* Submit Button */}
         <button type="submit">Submit</button>
       </form>
+
+      <p className="absolute bottom-0 text-slate-200 dark:text-slate-700">
+        v{version}
+      </p>
     </div>
   );
 };
