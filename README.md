@@ -4,8 +4,8 @@ An easy to use app that lets you create Desktop Shortcuts (.desktop files) on Li
 ![image](https://user-images.githubusercontent.com/25067102/152531646-1988e573-bd4d-495b-8d63-de00a3905c29.png)
 
 ## How to use
-### <a href="https://snapcraft.io/deskcut" target="_blank">Download from Snap Store</a>
-<a href="https://snapcraft.io/deskcut">![image](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)</a>
+### <a href="#">Download from Snap Store</a>
+Snap version will no longer be supported due to several issues that come up because of sandboxing. Please use the DEB or the AppImage version till another alternative is provided.
 
 ### Manual Installation:
 Go to the releases section and download DeskCut's latest version, Install and that's it!   
