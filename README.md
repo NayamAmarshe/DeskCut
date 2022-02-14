@@ -1,11 +1,10 @@
 # DeskCut
 An easy to use app that lets you create Desktop Shortcuts (.desktop files) on Linux without requiring to mess with `.desktop` files!
 
-![image](https://user-images.githubusercontent.com/25067102/152531646-1988e573-bd4d-495b-8d63-de00a3905c29.png)
+![deskcut](https://user-images.githubusercontent.com/25067102/153943083-6bcb011c-667f-4e88-89bc-cb8e7ec99ab2.gif)
+
 
 ## How to use
-### <a href="#">Download from Snap Store</a>
-Snap version will no longer be supported due to several issues that come up because of sandboxing. Please use the DEB or the AppImage version till another alternative is provided.
 
 ### Manual Installation:
 Go to the releases section and download DeskCut's latest version, Install and that's it!   
@@ -14,6 +13,8 @@ Go to the releases section and download DeskCut's latest version, Install and th
 - Use the `.deb` file to directly install it using your store app. Please remember that .deb files only work on Debian based distros like Ubuntu, ZorinOS, PopOS, Mint, KDE Neon, etc. DEB file will not work on Fedora/Manjaro/Arch.   
 - AppImage is portable and it works almost everywhere. It should be fine for most people but remember that it doesn't integrate by default. You'll have to run the file everytime you want to use the app because AppImages aren't supposed to be installed on a system. So make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
 
+### <a href="#">Download from Snap Store (NO LONGER AVAILABLE)</a>
+Snap version will no longer be supported due to several issues that come up because of sandboxing. Please use the DEB or the AppImage version till another alternative is provided.
 
 ## Build Instructions
 
