@@ -1,4 +1,6 @@
-# DeskCut
+<p align="center"><img src="https://user-images.githubusercontent.com/25067102/153943381-3ac38273-0195-4206-812a-201dc075c177.png" /></p>
+
+# <p align="center">DeskCut</p>
 An easy to use app that lets you create Desktop Shortcuts (.desktop files) on Linux without requiring to mess with `.desktop` files!
 
 <p align="center"><img src="https://user-images.githubusercontent.com/25067102/153943083-6bcb011c-667f-4e88-89bc-cb8e7ec99ab2.gif" /></p>
