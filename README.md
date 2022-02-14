@@ -68,5 +68,7 @@ yarn dist
 
 ## To-Do
 
-- [ ] Dark Mode
-- [ ] Auto-Update AppImage
+- [x] Dark Mode
+- [x] Update Dialog for DEBs & AppImages
+- [ ] Auto-Update AppImages?
+- [ ] Fix bugs (if any left)
