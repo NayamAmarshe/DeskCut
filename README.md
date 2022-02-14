@@ -11,8 +11,9 @@ An easy to use app that lets you create Desktop Shortcuts (.desktop files) on Li
 ### Manual Installation:
 Go to the releases section and download DeskCut's latest version, Install and that's it!   
 
-- You can download either the `.deb` version or the `AppImage`.   
-- Use the `.deb` file to directly install it using your store app. Please remember that .deb files only work on Debian based distros like Ubuntu, ZorinOS, PopOS, Mint, KDE Neon, etc. DEB file will not work on Fedora/Manjaro/Arch.   
+- You can download either the `.deb` or `.rpm` version or the `AppImage`.   
+- Use the `.deb` file to directly install it using your store app. Please remember that `.deb` files only work on Debian based distros like Ubuntu, ZorinOS, PopOS, Mint, KDE Neon, etc. DEB file will not work on Fedora/Manjaro/Arch. 
+- If you use Fedora, you should download the `.rpm` file instead. RPM packages are similar to DEB packages. Just double click (or open with your store app) and install.   
 - AppImage is portable and it works almost everywhere. It should be fine for most people but remember that it doesn't integrate by default. You'll have to run the file everytime you want to use the app because AppImages aren't supposed to be installed on a system. So make sure you use something like <a href="https://github.com/TheAssassin/AppImageLauncher/releases/" target="_blank">AppImage Launcher</a> to properly install it on your system. 
 
 ### <a href="#">Download from Snap Store (NO LONGER AVAILABLE)</a>
@@ -69,6 +70,6 @@ yarn dist
 ## To-Do
 
 - [x] Dark Mode
-- [x] Update Dialog for DEBs & AppImages
+- [x] Update Dialog for DEBs, RPMs & AppImages
 - [ ] Auto-Update AppImages?
 - [ ] Fix bugs (if any left)
