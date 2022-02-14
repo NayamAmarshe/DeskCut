@@ -160,7 +160,7 @@ const Home = () => {
           } checkbox-bg animate`}
           onClick={() => setCustomExec(!customExec)}
         >
-          <p className="flex-grow">Use Custom Exec Command</p>
+          <p className="flex-grow">Use Custom Icon & Command</p>
 
           {!customExec ? (
             <div>
@@ -223,19 +223,29 @@ const Home = () => {
             </button>
           )}
           {/* Icon Button */}
-          <button
-            type="button"
-            onClick={() => iconRef.current.click()}
-            className="picker flex flex-col items-center justify-center"
-          >
-            {/* Program Picker */}
-            <p>Choose Icon</p>
-            {loadedIcon && (
-              <p className="mt-2 w-80 truncate rounded-lg bg-red-300 p-1 text-slate-700">
-                {iconRef?.current?.files[0]?.name}
-              </p>
-            )}
-          </button>
+          {customExec ? (
+            <input
+              type="text"
+              name="Icon"
+              placeholder="Icon Image Path"
+              value={input.icon}
+              onChange={(e) => setInput({ ...input, icon: e.target.value })}
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => iconRef.current.click()}
+              className="picker flex flex-col items-center justify-center"
+            >
+              {/* Program Picker */}
+              <p>Choose Icon</p>
+              {loadedIcon && (
+                <p className="mt-2 w-80 truncate rounded-lg bg-red-300 p-1 text-slate-700">
+                  {iconRef?.current?.files[0]?.name}
+                </p>
+              )}
+            </button>
+          )}
         </div>
 
         {/* File Picker */}
