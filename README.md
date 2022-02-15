@@ -9,6 +9,8 @@ This lets you add a portable program to your search and system menus with a few 
 
 ## How to use
 
+Here's a nice article by Linuxiac on how to use DeskCut: https://linuxiac.com/deskcut-create-linux-desktop-shortcuts/
+
 ### Manual Installation:
 Go to the releases section and download DeskCut's latest version, Install and that's it!   
 
