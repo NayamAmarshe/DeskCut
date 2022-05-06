@@ -1,7 +1,7 @@
 {
   "name": "deskcut",
   "private": true,
-  "version": "1.5.0",
+  "version": "1.5.1",
   "productName": "DeskCut",
   "author": "Nayam Amarshe <nayam@nay.am>",
   "email": "nay@am.com",
@@ -28,8 +28,14 @@
     "linux": {
       "target": [
         "AppImage",
-        "deb"
+        "deb",
+        "rpm",
+        "flatpak",
+        "snap"
       ]
+    },
+    "snap": {
+      "confinement": "classic"
     },
     "files": [
       "main",
